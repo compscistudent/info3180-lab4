@@ -5,13 +5,16 @@
 
 {% include 'flash_messages.html' %}
 
-<div>
+<div class='container'>
 			<ul>
 			{% for file in files %}
 			  {% set type = file.split('.') %}
                     
-        {% if type[1] == 'jpg'  %}
-				    <img style="width:350px; height:300px;" src="{{url_for('static', filename ='uploads/'+file  ) }}"></img>
+        {% if type[1] == 'jpg' %}
+				    <img class="pics" src="{{url_for('static', filename ='uploads/'+file  ) }}"></img>
+			  {% endif %}
+			   {% if type[1] == 'png' %}
+				    <img class="pics" src="{{url_for('static', filename ='uploads/'+file  ) }}"></img>
 			  {% endif %}
 			{% endfor %}
 			</ul>
