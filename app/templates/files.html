@@ -6,10 +6,13 @@
 {% include 'flash_messages.html' %}
 
 <div>
-	<h3>Uploaded Images</h3>
 			<ul>
-			{% for image in images %}
-				<img style="width:350px; height:300px;" class="img-thumbnail" src="{{url_for('static', filename ='uploads/'+file  )}}"/><br><br>
+			{% for file in files %}
+			  {% set type = file.split('.') %}
+                    
+        {% if type[1] == 'jpg'  %}
+				    <img style="width:350px; height:300px;" src="{{url_for('static', filename ='uploads/'+file  ) }}"></img>
+			  {% endif %}
 			{% endfor %}
 			</ul>
 </div>			
